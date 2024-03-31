@@ -32,3 +32,11 @@ beckerkristal2010_wide <- readxl::read_xls(
   select(-`...98`)
 ```
 
+## Save data
+
+```{r}
+#| label: save
+
+usethis::use_data(beckerkristal2010_wide)
+```
+
