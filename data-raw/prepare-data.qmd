@@ -1,0 +1,29 @@
+---
+title: "Prepare data"
+author: "Stefano Coretta"
+format: html
+editor: source
+---
+
+## Read data
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+
+```
+
+```{r}
+beckerkristal2010_wide <- readxl::read_xls(
+  "BeckerVowelCorpus.xls",
+  sheet = 1
+) |> 
+  mutate(
+    across(matches("F\\d"), function(x) ifelse(x == "XXX", NA, x)),
+    across(matches("F\\d"), as.numeric),
+    `#Speakers` = ifelse(`#Speakers` == "?", NA, `#Speakers`),
+    `#Speakers` = as.numeric(`#Speakers`)
+  )
+```
+
