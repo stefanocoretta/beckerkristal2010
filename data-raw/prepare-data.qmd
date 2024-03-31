@@ -33,6 +33,30 @@ beckerkristal2010_wide <- readxl::read_xls(
   drop_na(Language)
 ```
 
+## Long format
+
+```{r}
+beckerkristal2010 <- beckerkristal2010_wide |> 
+  pivot_longer(
+    V1OS:V14F4,
+    names_to = c("vowel_id", "suffix"),
+    names_pattern = "V(\\d{1,2})(.*)",
+    values_transform = as.character
+  ) |> 
+  pivot_wider(
+    names_from = "suffix"
+  ) |> 
+  # drop non-existing vowels
+  drop_na(F1) |> 
+  mutate(
+    across(F1:F4, as.numeric),
+    vowel_num = as.numeric(vowel_id),
+    vowel_id = paste0("V", vowel_id),
+    Symmetry = str_match(Structure, "[SLR]")
+  )
+```
+
+
 ## Save data
 
 ```{r}
