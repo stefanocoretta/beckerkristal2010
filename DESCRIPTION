@@ -1,12 +1,21 @@
 Package: beckerkristal2010
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Formant data from Becker-Kristal 2010
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Date: 2024-03-31
+Authors@R: 
+    c(person(given = "Stefano",
+             family = "Coretta",
+             role = c("aut", "cre"),
+             email = paste0("stefano.coretta", "@", "gmail.com"),
+             comment = c(ORCID = "0000-0001-9627-5532")),
+      person(given = "Roy",
+             family = "Becker-Kristal",
+             role = c("cph", "dtc"),
+             comment = "Author of the data base.")
+    )
+Description: It provides data from Becker-Kristal 2010.
 Encoding: UTF-8
 LazyData: true
 License: MIT + file LICENSE
+RoxygenNote: 7.3.1
