@@ -15,15 +15,20 @@ library(tidyverse)
 ```
 
 ```{r}
+#| label: read-data
+
 beckerkristal2010_wide <- readxl::read_xls(
   "BeckerVowelCorpus.xls",
   sheet = 1
 ) |> 
+  # Mutate some chr cols to num
   mutate(
     across(matches("F\\d"), function(x) ifelse(x == "XXX", NA, x)),
     across(matches("F\\d"), as.numeric),
     `#Speakers` = ifelse(`#Speakers` == "?", NA, `#Speakers`),
     `#Speakers` = as.numeric(`#Speakers`)
-  )
+  ) |> 
+  # Drop empty column
+  select(-`...98`)
 ```
 
