@@ -15,7 +15,7 @@ library(tidyverse)
 ```
 
 ```{r}
-#| label: read-data
+#| label: beckerkristal2010-wide
 
 beckerkristal2010_wide <- readxl::read_xls(
   "BeckerVowelCorpus.xls",
@@ -31,11 +31,23 @@ beckerkristal2010_wide <- readxl::read_xls(
   # Drop empty column
   select(-`...98`) |> 
   drop_na(Language)
+
+col_names <- colnames(beckerkristal2010_wide)
+sub_names <- c(
+  "iso_639_3", "language", "variety", "genetics",
+  "source", "n_speakers", "method", "quantity",
+  "harmony", "n_vowels", "structure",
+  "n_peripheral", "n_nonperipheral"
+)
+col_names[1:13] <- sub_names
+colnames(beckerkristal2010_wide) <- col_names
 ```
 
 ## Long format
 
 ```{r}
+#| label: beckerkristal2010
+
 beckerkristal2010 <- beckerkristal2010_wide |> 
   pivot_longer(
     V1OS:V14F4,
@@ -52,7 +64,7 @@ beckerkristal2010 <- beckerkristal2010_wide |>
     across(F1:F4, as.numeric),
     vowel_num = as.numeric(vowel_id),
     vowel_id = paste0("V", vowel_id),
-    Symmetry = str_match(Structure, "[SLR]")
+    symmetry = str_extract(structure, "[SLR]")
   )
 ```
 
