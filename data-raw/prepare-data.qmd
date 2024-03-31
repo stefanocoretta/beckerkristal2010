@@ -29,7 +29,8 @@ beckerkristal2010_wide <- readxl::read_xls(
     `#Speakers` = as.numeric(`#Speakers`)
   ) |> 
   # Drop empty column
-  select(-`...98`)
+  select(-`...98`) |> 
+  drop_na(Language)
 ```
 
 ## Save data
