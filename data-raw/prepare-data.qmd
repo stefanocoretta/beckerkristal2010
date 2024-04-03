@@ -41,6 +41,15 @@ sub_names <- c(
 )
 col_names[1:13] <- sub_names
 colnames(beckerkristal2010_wide) <- col_names
+
+beckerkristal2010_wide <- beckerkristal2010_wide |> 
+  mutate(
+    symmetry = str_extract(structure, "[SLR]"),
+    quantity = str_to_sentence(quantity),
+    quantity = str_replace(quantity, "Conbined", "Combined"),
+    harmony = str_to_sentence(harmony)
+  ) |> 
+  relocate(symmetry, .after = n_peripheral)
 ```
 
 ## Long format
@@ -63,8 +72,7 @@ beckerkristal2010 <- beckerkristal2010_wide |>
   mutate(
     across(F1:F4, as.numeric),
     vowel_num = as.numeric(vowel_id),
-    vowel_id = paste0("V", vowel_id),
-    symmetry = str_extract(structure, "[SLR]")
+    vowel_id = paste0("V", vowel_id)
   )
 ```
 
@@ -74,6 +82,7 @@ beckerkristal2010 <- beckerkristal2010_wide |>
 ```{r}
 #| label: save
 
-usethis::use_data(beckerkristal2010_wide)
+usethis::use_data(beckerkristal2010_wide, overwrite = TRUE)
+usethis::use_data(beckerkristal2010, overwrite = TRUE)
 ```
 

@@ -6,7 +6,49 @@
 #'
 #' \describe{
 #'   \item{ISO 639-3}{Language ISO 639-3 code.}
-#'   \item{Language}{Language name.}
+#'   \item{language}{Language name.}
+#'   \item{variety}{Language variety.}
+#'   \item{genetics}{Philogenetic relation.}
+#'   \item{source}{Source of formant values.}
+#'   \item{n_speakers}{Number of speakers from which values were taken.}
+#'   \item{method}{Method of speech elicitation.}
+#'   \item{quantity}{Vowel phonological quantity.}
+#'   \item{harmony}{Does the language have vowel harmony?}
+#'   \item{n_vowels}{Total number of vowels in the language (excluding length/nasalisation contrasts).}
+#'   \item{structure}{Vowel system structure as proposed in Becker-Kristal 2010.}
+#'   \item{n_peripheral}{Number of peripheral vowels.}
+#'   \item{symmetry}{Symmetry of the vowel system.}
+#'   \item{n_nonperipheral}{Number of non-peripheral vowels.}
+#'   \item{V1OS, V14F4}{Original symbol (OS), Alternative Interpretation (PS), first, second, third and fourth formant. Vowels are numbered within each language.}
 #' }
 #' @source <http://phonetics.linguistics.ucla.edu/facilities/databases/databases.html>
 "beckerkristal2010_wide"
+
+#' Becker-Kristal 2010 formant data in long format
+#'
+#' The Becker-Kristal 2010 formant data in a long format.
+#'
+#' @format A tibble.
+#'
+#' \describe{
+#'   \item{ISO 639-3}{Language ISO 639-3 code.}
+#'   \item{language}{Language name.}
+#'   \item{variety}{Language variety.}
+#'   \item{genetics}{Philogenetic relation.}
+#'   \item{source}{Source of formant values.}
+#'   \item{n_speakers}{Number of speakers from which values were taken.}
+#'   \item{method}{Method of speech elicitation.}
+#'   \item{quantity}{Vowel phonological quantity.}
+#'   \item{harmony}{Does the language have vowel harmony?}
+#'   \item{n_vowels}{Total number of vowels in the language (excluding length/nasalisation contrasts).}
+#'   \item{structure}{Vowel system structure as proposed in Becker-Kristal 2010.}
+#'   \item{n_peripheral}{Number of peripheral vowels.}
+#'   \item{symmetry}{Symmetry of the vowel system.}
+#'   \item{n_nonperipheral}{Number of non-peripheral vowels.}
+#'   \item{OS}{Original symbol.}
+#'   \item{PS}{Alternative symbol.}
+#'   \item{F1, F4}{Values of first, second, third and fourth formants.}
+#'   \item{vowel_num}{Numeric ID of the vowel within each language.}
+#' }
+#' @source <http://phonetics.linguistics.ucla.edu/facilities/databases/databases.html>
+"beckerkristal2010"
