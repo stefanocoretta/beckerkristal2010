@@ -23,6 +23,11 @@ A tibble.
 \item{symmetry}{Symmetry of the vowel system.}
 \item{n_nonperipheral}{Number of non-peripheral vowels.}
 \item{V1OS, V14F4}{Original symbol (OS), Alternative Interpretation (PS), first, second, third and fourth formant. Vowels are numbered within each language.}
+\item{F1Centroid}{Mean F1.}
+\item{F1CentroidPosition}{Scaled mean F1.}
+\item{F1UCA}{Universal Centroid Approximation index for F1 (F1UCA = F1MIN + 0.391(F1MAX-F1MIN)).}
+\item{F2Centroid}{Mean F2.}
+\item{F2CentroidPosition}{Scaled mean F2.}
 }
 }
 \source{
